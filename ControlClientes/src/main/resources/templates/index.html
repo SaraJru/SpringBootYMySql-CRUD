@@ -7,17 +7,18 @@
     </head>
     <body>
         <header th:replace="layout/Plantilla :: header"/>
-        <a th:href="@{/agregar}">Crear Persona</a>
+        <a th:href="@{/agregar}">[[#{Persona.crear}]]</a>
         <div th:if="${personas != null and !personas.empty}">
 
             <table border="1">
                 <tr>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Email</th>
-                    <th>Telefono</th>
-                    <th>Editar</th>
-                    <th>Eliminar</th>
+                    
+                    <th>[[#{Persona.nombre}]]</th>
+                    <th>[[#{Persona.apellido}]]</th>
+                    <th>[[#{Persona.email}]]</th>
+                    <th>[[#{Persona.telefono}]]</th>
+                    <th>[[#{accion.editar}]]</th>
+                    <th>[[#{accion.eliminar}]]</th>
 
                 </tr>
                 <tr th:each="persona: ${personas}">
@@ -39,10 +40,11 @@
                 </tr>
             </table>
         </div>
-        <div th:if="${personas == null or personas.empty}">
-            La lista de personas esta vacía!
+         <div th:if="${personas == null or personas.empty}">
+            [[#{Persona.lista-vacia}]]
         </div>
 
+        
         <footer th:replace="layout/Plantilla :: footer"/>
     </body>
 </html>

@@ -7,31 +7,31 @@
     </head>
     <body>
         <header th:replace="layout/Plantilla :: header"/>
-        <h2>Datos de la persona</h2>
-        <a th:href="@{/}">Regresar</a>
+        <h2>[[#{Persona.formulario}]]</h2>
+        <a th:href="@{/}">[[#{accion.regresar}]]</a>
         <br/>
         <form th:action="@{/guardar}" method="post" th:object="${persona}">
             <input type="hidden" name="idPersona" th:field="*{idPersona}"/>
             <br/>
-            <label for="nombre">Nombre:</label>
+            <label for="nombre">[[#{Persona.nombre}]]:</label>
             <input type="text" name="nombre" th:field="*{nombre}"/>
             <!--Validaciones-->
             <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Error en nombre</span>
             <br/>
-            <label for="apellido">Apellido:</label>
+            <label for="apellido">[[#{Persona.apellido}]]:</label>
             <input type="text" name="apellido" th:field="*{apellido}"/>
             <!--Validaciones-->
             <span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}">Error en apellido</span>
             <br/>
-            <label for="email">Email:</label>
+            <label for="email">[[#{Persona.email}]]:</label>
             <input type="text" name="email" th:field="*{email}"/>
             <!--Validaciones-->
             <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Error en email</span>
             <br/>
-            <label for="telefono">Teléfono:</label>
+            <label for="telefono">[[#{Persona.telefono}]]:</label>
             <input type="tel" name="telefono" th:field="*{telefono}"/>
             <br/>
-            <input type="submit" name="guardar" value="Guardar"/>
+            <input type="submit" name="guardar" th:value="#{accion.guardar}"/>
             
         </form>
         
