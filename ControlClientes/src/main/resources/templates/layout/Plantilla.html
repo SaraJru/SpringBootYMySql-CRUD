@@ -13,7 +13,12 @@
         </header>
         
         <footer th:fragment="footer">
-            <p>[[#{Plantilla.pie-pagina}]]</p>
+            <div>
+                <br/>
+                <a th:href="@{/(lang=es)}">ES<a/> |
+                    <a th:href="@{/(lang=en)}">EN<a/> |
+                        <span>[[#{Plantilla.pie-pagina}]]</span>
+                        </div>
         </footer>
         
     </body>
