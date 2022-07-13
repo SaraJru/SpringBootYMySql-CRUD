@@ -5,6 +5,8 @@ import com.gt.sj.servicio.PersonaService;
 import javax.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -20,10 +22,11 @@ public class Controlador {
     private PersonaService personaService;
     
     @GetMapping("/")
-    public String Inicio(Model model){ 
+    public String Inicio(Model model, @AuthenticationPrincipal User usuario){ 
         var personas = personaService.listarPersonas();
         
         log.info("Ejecutando el controlador Spring MVC");
+        log.info("El usuario que hizo login es: "+usuario);
         model.addAttribute("personas", personas);
         return "index";
     }
