@@ -2,13 +2,9 @@
 package com.gt.sj.dao;
 
 import com.gt.sj.domain.Persona;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-/**
- *
- * @author SaraJr
- */
-public interface PersonaDao extends CrudRepository<Persona,Long>  {
+public interface PersonaDao extends JpaRepository<Persona,Long>  {
     
     
     
