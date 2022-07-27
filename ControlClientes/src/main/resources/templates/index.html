@@ -9,6 +9,13 @@
     </head>
     <body>
         <header th:replace="layout/Plantilla :: header"/>
+        <section th:replace="layout/botonesAgregar :: botonesAgregar"></section>/>
+        <!--
+        <section th:replace="layout/agregarCliente :: agregarCliente"></section>/>
+        <section th:replace="layout/listadoClientes :: listadoClientes"></section>/>
+        -->
+        <footer th:replace="layout/Plantilla :: footer"/>
+        
         <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/agregar}">[[#{Persona.crear}]]</a>
         <div th:if="${personas != null and !personas.empty}">
 
@@ -43,8 +50,5 @@
          <div th:if="${personas == null or personas.empty}">
             [[#{Persona.lista-vacia}]]
         </div>
-
-        
-        <footer th:replace="layout/Plantilla :: footer"/>
     </body>
 </html>
